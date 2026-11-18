@@ -3,7 +3,7 @@
 #
 # Repository variables:
 #   AWS_DEPLOY_ROLE_ARN         IAM role GitHub assumes via OIDC
-#   WEB_BUCKET                  S3 bucket name, e.g. bitebridge-web-prod
+#   WEB_BUCKET                  S3 bucket name, e.g. bitebox-web-prod
 #   CLOUDFRONT_DISTRIBUTION_ID  e.g. E1ABCDEF2GHIJK
 #   VITE_API_URL                public API URL, e.g. https://api.yourdomain.com
 name: Deploy Web

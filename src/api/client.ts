@@ -14,7 +14,7 @@ import type {
 export const API_URL: string = import.meta.env.VITE_API_URL || '';
 const BASE = API_URL || '/api';
 
-const TOKEN_KEY = 'bitebridge.token';
+const TOKEN_KEY = 'bitebox.token';
 export const tokenStore = {
   get: () => localStorage.getItem(TOKEN_KEY),
   set: (t: string) => localStorage.setItem(TOKEN_KEY, t),
@@ -31,7 +31,7 @@ export class ApiError extends Error {
 }
 
 /** Fired when the API says our token is no longer valid, so the app can sign out. */
-export const UNAUTHORIZED_EVENT = 'bitebridge:unauthorized';
+export const UNAUTHORIZED_EVENT = 'bitebox:unauthorized';
 
 async function request<T>(method: string, path: string, body?: unknown): Promise<T> {
   const token = tokenStore.get();

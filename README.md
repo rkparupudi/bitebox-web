@@ -1,14 +1,14 @@
-# BiteBridge Web
+# BiteBox Web
 
-The web front end for **BiteBridge**, a food ordering and delivery platform. One app, three experiences:
+The web front end for **BiteBox**, a food ordering and delivery platform. One app, three experiences:
 
 - **Customers** browse restaurants, fill a cart, pay and watch their order move from kitchen to door, live.
 - **Restaurant owners** get a live order board, a menu editor and sales reports.
 - **Admins** see every order on the platform and can suspend restaurants.
 
-The backend is in the companion repo [bitebridge-api](https://github.com/rkparupudi/bitebridge-api).
+The backend is in the companion repo [bitebox-api](https://github.com/rkparupudi/bitebox-api).
 
-![CI](https://github.com/rkparupudi/bitebridge-web/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/rkparupudi/bitebox-web/actions/workflows/ci.yml/badge.svg)
 
 | | |
 |---|---|
@@ -71,7 +71,7 @@ The backend is in the companion repo [bitebridge-api](https://github.com/rkparup
 ### Prerequisites
 
 - **Node.js 22**
-- The **BiteBridge API running on http://localhost:3000**, seeded with demo data. Follow the API repo's Quick start; it takes about five minutes with Docker Desktop.
+- The **BiteBox API running on http://localhost:3000**, seeded with demo data. Follow the API repo's Quick start; it takes about five minutes with Docker Desktop.
 
 ### Run
 
@@ -90,9 +90,9 @@ The sign-in page shows one-click buttons for the seeded accounts. They appear on
 
 | Role | Email | Password |
 |---|---|---|
-| Customer | `customer@bitebridge.dev` | `password123` |
-| Restaurant owner | `owner@bitebridge.dev` | `password123` |
-| Admin | `admin@bitebridge.dev` | `password123` |
+| Customer | `customer@bitebox.dev` | `password123` |
+| Restaurant owner | `owner@bitebox.dev` | `password123` |
+| Admin | `admin@bitebox.dev` | `password123` |
 
 ---
 
@@ -286,7 +286,7 @@ The included GitHub Actions workflow (`.github/workflows/deploy.yml`) does both 
 2. Syncs assets to S3 with `Cache-Control: max-age=31536000, immutable` and `index.html` with `no-cache`.
 3. Invalidates `index.html` in CloudFront.
 
-It signs in to AWS through **OIDC**, so no AWS keys are stored in GitHub. It skips itself until the repository variables are set. Full AWS setup, including costs, is in the API repo's [DEPLOYMENT.md](https://github.com/rkparupudi/bitebridge-api/blob/main/DEPLOYMENT.md).
+It signs in to AWS through **OIDC**, so no AWS keys are stored in GitHub. It skips itself until the repository variables are set. Full AWS setup, including costs, is in the API repo's [DEPLOYMENT.md](https://github.com/rkparupudi/bitebox-api/blob/main/DEPLOYMENT.md).
 
 For the cheaper single-server option, copy `dist/` to the server, where Caddy serves it (also in DEPLOYMENT.md).
 
@@ -317,10 +317,10 @@ Run through this before a release. Use two browser windows for the real-time ite
 
 | Symptom | Fix |
 |---|---|
-| Blank list, or "Failed to fetch" / 502 from `/api/...` | The API isn't running on :3000. Start it (`npm run start:dev` in bitebridge-api) |
+| Blank list, or "Failed to fetch" / 502 from `/api/...` | The API isn't running on :3000. Start it (`npm run start:dev` in bitebox-api) |
 | "Connecting…" never turns into "Live" | The API is down, or your token expired. Sign out and back in |
 | No demo login buttons on the sign-in page | They only appear in `npm run dev`, not in production builds |
-| Demo login fails with "Invalid email or password" | Seed the API: `npm run seed` in bitebridge-api |
+| Demo login fails with "Invalid email or password" | Seed the API: `npm run seed` in bitebox-api |
 | "Stripe is not configured" on the payment screen | The API is in Stripe mode without `STRIPE_PUBLISHABLE_KEY`. Set it, or use `PAYMENTS_PROVIDER=fake` locally |
 | Deep link returns 404 after deploying | Configure the single-page app fallback (see [Building and deploying](#building-and-deploying)) |
 | Production site calls the wrong API | `VITE_API_URL` is baked in at build time. Rebuild with the right value |

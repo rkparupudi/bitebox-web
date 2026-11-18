@@ -10,7 +10,7 @@ export function CartPage() {
   const navigate = useNavigate();
   const cart = useQuery({ queryKey: ['cart'], queryFn: api.cart });
   const config = useQuery({ queryKey: ['config'], queryFn: api.config, staleTime: Infinity });
-  const [address, setAddress] = useState(() => localStorage.getItem('bitebridge.address') ?? '');
+  const [address, setAddress] = useState(() => localStorage.getItem('bitebox.address') ?? '');
   const [notes, setNotes] = useState('');
 
   const setQty = useMutation({
@@ -21,7 +21,7 @@ export function CartPage() {
   const checkout = useMutation({
     mutationFn: () => api.checkout(address, notes),
     onSuccess: ({ order }) => {
-      localStorage.setItem('bitebridge.address', address);
+      localStorage.setItem('bitebox.address', address);
       qc.invalidateQueries({ queryKey: ['cart'] });
       qc.invalidateQueries({ queryKey: ['orders'] });
       navigate(`/orders/${order.id}`);

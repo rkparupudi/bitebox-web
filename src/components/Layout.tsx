@@ -36,7 +36,7 @@ export function Layout() {
       <header className="topbar">
         <div className="topbar-inner">
           <Link to="/" className="logo">
-            <span className="logo-mark">B</span> BiteBridge
+            <span className="logo-mark">B</span> BiteBox
           </Link>
           <nav className="nav">
             {links.map((l) => (

@@ -1,4 +1,4 @@
-// Shapes returned by the BiteBridge API. Kept in one place so a backend change
+// Shapes returned by the BiteBox API. Kept in one place so a backend change
 // shows up as a type error here rather than a runtime surprise.
 
 export type Role = 'customer' | 'restaurant_owner' | 'admin';

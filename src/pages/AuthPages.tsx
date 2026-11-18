@@ -5,9 +5,9 @@ import { ErrorBanner } from '../components/ui';
 
 /** The accounts created by `npm run seed` in the API. Shown only in local development. */
 const DEMO = [
-  { email: 'customer@bitebridge.dev', label: 'Customer' },
-  { email: 'owner@bitebridge.dev', label: 'Restaurant owner' },
-  { email: 'admin@bitebridge.dev', label: 'Admin' },
+  { email: 'customer@bitebox.dev', label: 'Customer' },
+  { email: 'owner@bitebox.dev', label: 'Restaurant owner' },
+  { email: 'admin@bitebox.dev', label: 'Admin' },
 ];
 
 export function LoginPage() {
