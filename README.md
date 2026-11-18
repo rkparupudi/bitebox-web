@@ -6,7 +6,7 @@ The web front end for **BiteBox**, a food ordering and delivery platform. One ap
 - **Restaurant owners** get a live order board, a menu editor and sales reports.
 - **Admins** see every order on the platform and can suspend restaurants.
 
-The backend is in the companion repo [bitebox-api](https://github.com/rkparupudi/bitebox-api).
+The backend is in [bitebox-api](https://github.com/rkparupudi/bitebox-api). The Android and iOS apps are in [bitebox-mobile](https://github.com/rkparupudi/bitebox-mobile). All three use the same API, so an order placed on a phone appears live on the restaurant's web dashboard, and the other way round. `src/api/types.ts` and `src/lib/format.ts` are shared verbatim with the mobile app.
 
 ![CI](https://github.com/rkparupudi/bitebox-web/actions/workflows/ci.yml/badge.svg)
 
@@ -334,7 +334,6 @@ Run through this before a release. Use two browser windows for the real-time ite
 - Delivery address book and saved payment methods
 - Restaurant photos via S3 uploads
 - Order notifications with sound for the restaurant board
-- React Native app sharing `src/api` and `src/lib`
 - Accessibility pass (focus management, ARIA live regions for order updates)
 
 ---
