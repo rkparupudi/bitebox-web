@@ -2,6 +2,7 @@ import { useQueryClient } from '@tanstack/react-query';
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { api, tokenStore, UNAUTHORIZED_EVENT } from '../api/client';
 import type { User } from '../api/types';
+import { disconnectSocket } from '../lib/realtime';
 
 interface AuthState {
   user: User | null;
@@ -20,6 +21,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = useCallback(() => {
     tokenStore.clear();
+    disconnectSocket();
     setUser(null);
     queryClient.clear(); // never show one user's cached data to the next
   }, [queryClient]);

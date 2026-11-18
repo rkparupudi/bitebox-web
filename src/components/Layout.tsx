@@ -3,7 +3,6 @@ import { Link, NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { api } from '../api/client';
 import { useAuth } from '../auth/AuthContext';
 import { money } from '../lib/format';
-import { disconnectSocket } from '../lib/realtime';
 
 const ROLE_LABEL = { customer: 'Customer', restaurant_owner: 'Restaurant', admin: 'Admin' } as const;
 
@@ -55,7 +54,6 @@ export function Layout() {
                 <button
                   className="btn small ghost"
                   onClick={() => {
-                    disconnectSocket();
                     logout();
                     navigate('/login');
                   }}
